@@ -2,6 +2,7 @@
 
 from functools import lru_cache
 from pathlib import Path
+from typing import cast
 
 from pydantic import AnyHttpUrl, Field, PositiveFloat, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -17,14 +18,15 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
-    api_base_url: AnyHttpUrl = Field(default="https://pk-db.com/api/v1")
-    openapi_url: AnyHttpUrl = Field(default="https://pk-db.com/api/v1/swagger.json")
+    api_base_url: AnyHttpUrl = cast(AnyHttpUrl, "https://pk-db.com/api/v1")
+    openapi_url: AnyHttpUrl = cast(AnyHttpUrl, "https://pk-db.com/api/v1/swagger.json")
     api_token: str | None = Field(default=None)
     use_fallback_spec: bool = Field(default=True)
     fallback_spec_path: Path = Field(
         default_factory=lambda: Path(__file__).parent / "specs" / "pkdb_swagger_fallback.json"
     )
     http_timeout_seconds: PositiveFloat = Field(default=30.0)
+    proxy: str | None = Field(default=None)
     mcp_server_name: str = Field(default="pkdb-mcp")
     mcp_transport: str = Field(default="stdio")
     user_agent: str = Field(default="pkdb-mcp/0.1.0")

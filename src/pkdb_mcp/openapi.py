@@ -11,7 +11,7 @@ import json
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import httpx
 import yaml
@@ -153,11 +153,14 @@ def load_spec(settings: Settings) -> JsonDict:
     """Load a Swagger/OpenAPI document from PK-DB, optionally falling back to a bundle."""
 
     try:
-        with httpx.Client(
-            timeout=settings.http_timeout_seconds,
-            follow_redirects=True,
-            headers={"Accept": "application/json", "User-Agent": settings.user_agent},
-        ) as client:
+        client_kwargs: dict[str, Any] = {
+            "timeout": settings.http_timeout_seconds,
+            "follow_redirects": True,
+            "headers": {"Accept": "application/json", "User-Agent": settings.user_agent},
+        }
+        if settings.proxy:
+            client_kwargs["proxies"] = settings.proxy
+        with httpx.Client(**client_kwargs) as client:
             response = client.get(settings.openapi_url_str)
             response.raise_for_status()
             return _decode_spec_bytes(response.content, response.headers.get("content-type", ""))
@@ -182,7 +185,7 @@ def load_spec_file(path: Path) -> JsonDict:
 def _decode_spec_bytes(raw: bytes, hint: str) -> JsonDict:
     text = raw.decode("utf-8")
     try:
-        if "yaml" in hint or hint.endswith(('.yaml', '.yml')):
+        if "yaml" in hint or hint.endswith((".yaml", ".yml")):
             data = yaml.safe_load(text)
         else:
             data = json.loads(text)
@@ -212,15 +215,19 @@ def parse_catalog(spec: JsonDict) -> OpenAPICatalog:
     for path, path_item in sorted(raw_paths.items()):
         if not isinstance(path_item, dict):
             continue
-        inherited_parameters = _parse_parameters(path_item.get("parameters", []))
-        for method, operation_doc in sorted(path_item.items()):
-            if method.lower() not in _HTTP_METHODS or not isinstance(operation_doc, dict):
+        path_key: str = cast("str", path)
+        path_item_typed: JsonDict = cast("JsonDict", path_item)
+        inherited_parameters = _parse_parameters(path_item_typed.get("parameters", []))
+        for method, operation_doc in sorted(path_item_typed.items()):
+            if not isinstance(method, str) or not isinstance(operation_doc, dict):
+                continue
+            if method.lower() not in _HTTP_METHODS:
                 continue
             operation = _parse_operation(
                 spec=spec,
-                path=path,
+                path=path_key,
                 method=method.lower(),
-                operation_doc=operation_doc,
+                operation_doc=cast("JsonDict", operation_doc),
                 inherited_parameters=inherited_parameters,
                 seen_tool_names=seen_tool_names,
             )
@@ -251,12 +258,16 @@ def _parse_operation(
 
     # Swagger 2.0 sometimes models body/formData only as parameters.
     if request_body is None:
-        body_params = [parameter for parameter in parameters if parameter.location in {"body", "formData"}]
+        body_params = [
+            parameter for parameter in parameters if parameter.location in {"body", "formData"}
+        ]
         if body_params:
             request_body = {
                 "content": {
                     "application/json": {
-                        "schema": body_params[0].schema if len(body_params) == 1 else {"type": "object"}
+                        "schema": body_params[0].schema
+                        if len(body_params) == 1
+                        else {"type": "object"}
                     }
                 }
             }
@@ -271,8 +282,12 @@ def _parse_operation(
         tags=tuple(str(tag) for tag in operation_doc.get("tags", []) if tag),
         parameters=tuple(parameters),
         request_body=request_body,
-        consumes=tuple(_as_string_list(operation_doc.get("consumes") or spec.get("consumes") or [])),
-        produces=tuple(_as_string_list(operation_doc.get("produces") or spec.get("produces") or [])),
+        consumes=tuple(
+            _as_string_list(operation_doc.get("consumes") or spec.get("consumes") or [])
+        ),
+        produces=tuple(
+            _as_string_list(operation_doc.get("produces") or spec.get("produces") or [])
+        ),
     )
 
 
@@ -334,7 +349,11 @@ def _as_string_list(value: Any) -> list[str]:
 def substitute_path_parameters(path: str, arguments: dict[str, Any], operation: Operation) -> str:
     """Substitute OpenAPI path placeholders using normalized argument names."""
 
-    path_parameters = {parameter.name: parameter for parameter in operation.parameters if parameter.location == "path"}
+    path_parameters = {
+        parameter.name: parameter
+        for parameter in operation.parameters
+        if parameter.location == "path"
+    }
 
     def replace(match: re.Match[str]) -> str:
         api_name = match.group(1)

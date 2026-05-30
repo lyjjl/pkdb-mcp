@@ -5,9 +5,7 @@ description = "Model Context Protocol server for the PK-DB REST API."
 readme = "README.md"
 requires-python = ">=3.13"
 license = { text = "MIT" }
-authors = [
-  { name = "PK-DB MCP maintainers" }
-]
+authors = [{ name = "PK-DB MCP maintainers" }]
 keywords = ["mcp", "pk-db", "pharmacokinetics", "openapi", "ai-agent"]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -26,20 +24,21 @@ dependencies = [
   "pyyaml>=6.0.2",
 ]
 
+[project.urls]
+Homepage = "https://github.com/lyjjl/pkdb-mcp"
+Repository = "https://github.com/lyjjl/pkdb-mcp"
+Issues = "https://github.com/lyjjl/pkdb-mcp/issues"
+
 [project.optional-dependencies]
-dev = [
-  "pytest>=8.3.0",
-  "pytest-asyncio>=0.24.0",
-  "ruff>=0.8.0",
-  "ty>=0.0.1a1",
-]
+dev = ["pytest>=8.3.0", "pytest-asyncio>=0.24.0", "ruff>=0.8.0", "ty>=0.0.1a1"]
+socks = ["socksio>=1.0.0"]
 
 [project.scripts]
 pkdb-mcp = "pkdb_mcp.__main__:main"
 
 [build-system]
-requires = ["hatchling>=1.26.0"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.8.0,<0.9.0"]
+build-backend = "uv_build"
 
 [tool.uv]
 package = true
@@ -72,7 +71,7 @@ select = [
   "W",
 ]
 ignore = [
-  "B008",  # Pydantic Settings uses descriptors/defaults safely here.
+  "B008", # Pydantic Settings uses descriptors/defaults safely here.
 ]
 
 [tool.ruff.lint.per-file-ignores]

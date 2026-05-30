@@ -1,6 +1,11 @@
 from pathlib import Path
 
-from pkdb_mcp.openapi import load_spec_file, parse_catalog, substitute_path_parameters, to_identifier
+from pkdb_mcp.openapi import (
+    load_spec_file,
+    parse_catalog,
+    substitute_path_parameters,
+    to_identifier,
+)
 
 FIXTURE = Path(__file__).parent / "fixtures" / "pkdb_minimal_openapi.json"
 
@@ -32,4 +37,6 @@ def test_substitute_path_parameters() -> None:
     catalog = parse_catalog(load_spec_file(FIXTURE))
     operation = catalog.get("pkdb_info_nodes_read")
 
-    assert substitute_path_parameters(operation.path, {"sid": "caf"}, operation) == "/info_nodes/caf/"
+    assert (
+        substitute_path_parameters(operation.path, {"sid": "caf"}, operation) == "/info_nodes/caf/"
+    )

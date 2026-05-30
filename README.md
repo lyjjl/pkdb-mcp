@@ -138,15 +138,16 @@ PKDB_OPENAPI_URL = "https://pk-db.com/api/v1/swagger.json"
 
 所有配置项均为环境变量，以 `PKDB_` 为前缀：
 
-| 变量                        | 默认值                                  | 描述                                                |
-| --------------------------- | --------------------------------------- | --------------------------------------------------- |
-| `PKDB_API_BASE_URL`         | `https://pk-db.com/api/v1`              | REST API 基础 URL                                   |
-| `PKDB_OPENAPI_URL`          | `https://pk-db.com/api/v1/swagger.json` | OpenAPI 文档 URL                                    |
-| `PKDB_API_TOKEN`            | _(未设置)_                              | 可选，用于认证端点的令牌                            |
-| `PKDB_USE_FALLBACK_SPEC`    | `true`                                  | 实时文档不可用时是否回退至内置规范                  |
-| `PKDB_MCP_TRANSPORT`        | `stdio`                                 | MCP 传输方式（`stdio`、`sse` 或 `streamable-http`） |
-| `PKDB_MCP_SERVER_NAME`      | `pkdb-mcp`                              | 向客户端宣告的 MCP 服务器名称                       |
-| `PKDB_HTTP_TIMEOUT_SECONDS` | `30`                                    | HTTP 请求超时时间（秒）                             |
+| 变量                        | 默认值                                  | 描述                                                                            |
+| --------------------------- | --------------------------------------- | ------------------------------------------------------------------------------- |
+| `PKDB_API_BASE_URL`         | `https://pk-db.com/api/v1`              | REST API 基础 URL                                                               |
+| `PKDB_OPENAPI_URL`          | `https://pk-db.com/api/v1/swagger.json` | OpenAPI 文档 URL                                                                |
+| `PKDB_API_TOKEN`            | _(未设置)_                              | 可选，用于认证端点的令牌                                                        |
+| `PKDB_USE_FALLBACK_SPEC`    | `true`                                  | 实时文档不可用时是否回退至内置规范                                              |
+| `PKDB_MCP_TRANSPORT`        | `stdio`                                 | MCP 传输方式（`stdio`、`sse` 或 `streamable-http`）                             |
+| `PKDB_MCP_SERVER_NAME`      | `pkdb-mcp`                              | 向客户端宣告的 MCP 服务器名称                                                   |
+| `PKDB_HTTP_TIMEOUT_SECONDS` | `30`                                    | HTTP 请求超时时间（秒）                                                         |
+| `PKDB_PROXY`                | _(未设置)_                              | 可选的 HTTP/SOCKS 代理 URL（如 `http://proxy:8080`）；SOCKS 需 `socks` 额外依赖 |
 
 项目附带 `.env.example` 作为示例环境配置文件。
 

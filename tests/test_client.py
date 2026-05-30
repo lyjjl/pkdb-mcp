@@ -2,6 +2,7 @@ from pathlib import Path
 
 import httpx
 import pytest
+from pydantic import AnyHttpUrl
 
 from pkdb_mcp.client import PKDBClient
 from pkdb_mcp.openapi import load_spec_file, parse_catalog
@@ -14,8 +15,8 @@ FIXTURE = Path(__file__).parent / "fixtures" / "pkdb_minimal_openapi.json"
 async def test_call_operation_builds_path_and_query(monkeypatch: pytest.MonkeyPatch) -> None:
     catalog = parse_catalog(load_spec_file(FIXTURE))
     settings = Settings(
-        api_base_url="https://example.test/api/v1",
-        openapi_url="https://example.test/api/v1/swagger.json",
+        api_base_url=AnyHttpUrl("https://example.test/api/v1"),
+        openapi_url=AnyHttpUrl("https://example.test/api/v1/swagger.json"),
         api_token="secret",
     )
     client = PKDBClient(settings, catalog=catalog)
@@ -47,8 +48,8 @@ async def test_call_operation_builds_path_and_query(monkeypatch: pytest.MonkeyPa
 @pytest.mark.asyncio
 async def test_raw_request_serializes_binary(monkeypatch: pytest.MonkeyPatch) -> None:
     settings = Settings(
-        api_base_url="https://example.test/api/v1",
-        openapi_url="https://example.test/api/v1/swagger.json",
+        api_base_url=AnyHttpUrl("https://example.test/api/v1"),
+        openapi_url=AnyHttpUrl("https://example.test/api/v1/swagger.json"),
     )
     client = PKDBClient(settings)
 

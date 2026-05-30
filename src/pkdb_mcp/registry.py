@@ -19,10 +19,11 @@ def make_operation_handler(client: PKDBClient, operation: Operation) -> ToolHand
     async def handler(**kwargs: Any) -> JsonDict:
         return await client.call_operation(operation, kwargs)
 
-    handler.__name__ = operation.tool_name
-    handler.__qualname__ = operation.tool_name
-    handler.__doc__ = operation_description(operation)
-    handler.__signature__ = operation_signature(operation)  # type: ignore[attr-defined]
+    h: Any = handler
+    h.__name__ = operation.tool_name
+    h.__qualname__ = operation.tool_name
+    h.__doc__ = operation_description(operation)
+    h.__signature__ = operation_signature(operation)
     return handler
 
 
@@ -46,7 +47,11 @@ def operation_signature(operation: Operation) -> inspect.Signature:
             )
         )
 
-    if operation.request_body is not None and "body" not in seen_names and "json_body" not in seen_names:
+    if (
+        operation.request_body is not None
+        and "body" not in seen_names
+        and "json_body" not in seen_names
+    ):
         parameters.append(
             inspect.Parameter(
                 name="json_body",
@@ -73,7 +78,10 @@ def operation_description(operation: Operation) -> str:
                 description = f"{description}. {parameter.description}"
             lines.append(description)
     if operation.request_body is not None:
-        lines.append("Request body: pass JSON as json_body unless the generated schema exposes a body argument.")
+        lines.append(
+            "Request body: pass JSON as json_body"
+            " unless the generated schema exposes a body argument."
+        )
     return "\n".join(line for line in lines if line)
 
 

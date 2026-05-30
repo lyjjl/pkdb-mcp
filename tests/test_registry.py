@@ -1,5 +1,8 @@
 import inspect
 from pathlib import Path
+from typing import Any
+
+from pydantic import AnyHttpUrl
 
 from pkdb_mcp.client import PKDBClient
 from pkdb_mcp.openapi import load_spec_file, parse_catalog
@@ -14,8 +17,8 @@ def test_make_operation_handler_has_operation_signature() -> None:
     operation = catalog.get("pkdb_info_nodes_read")
     client = PKDBClient(
         Settings(
-            api_base_url="https://example.test/api/v1",
-            openapi_url="https://example.test/api/v1/swagger.json",
+            api_base_url=AnyHttpUrl("https://example.test/api/v1"),
+            openapi_url=AnyHttpUrl("https://example.test/api/v1/swagger.json"),
         ),
         catalog=catalog,
     )
@@ -23,7 +26,8 @@ def test_make_operation_handler_has_operation_signature() -> None:
     handler = make_operation_handler(client, operation)
     signature = inspect.signature(handler)
 
-    assert handler.__name__ == "pkdb_info_nodes_read"
+    h: Any = handler
+    assert h.__name__ == "pkdb_info_nodes_read"
     assert "sid" in signature.parameters
     assert signature.parameters["sid"].default is inspect.Parameter.empty
     assert "format" in signature.parameters

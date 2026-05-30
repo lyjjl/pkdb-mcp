@@ -29,7 +29,9 @@ class PKDBClient:
         self.settings = settings
         self.catalog = catalog
 
-    async def execute_operation(self, name_or_id: str, arguments: Mapping[str, Any] | None = None) -> JsonDict:
+    async def execute_operation(
+        self, name_or_id: str, arguments: Mapping[str, Any] | None = None
+    ) -> JsonDict:
         """Execute a loaded OpenAPI operation by tool name or operation ID."""
 
         if self.catalog is None:
@@ -88,11 +90,14 @@ class PKDBClient:
 
         url = self._url_for(path)
         try:
-            async with httpx.AsyncClient(
-                timeout=self.settings.http_timeout_seconds,
-                follow_redirects=True,
-                headers=request_headers,
-            ) as client:
+            client_kwargs: dict[str, Any] = {
+                "timeout": self.settings.http_timeout_seconds,
+                "follow_redirects": True,
+                "headers": request_headers,
+            }
+            if self.settings.proxy:
+                client_kwargs["proxies"] = self.settings.proxy
+            async with httpx.AsyncClient(**client_kwargs) as client:
                 response = await client.request(
                     method=method.upper(),
                     url=url,
@@ -115,7 +120,7 @@ class PKDBClient:
         return headers
 
     def _url_for(self, path: str) -> str:
-        if path.startswith("http://") or path.startswith("https://"):
+        if path.startswith(("http://", "https://")):
             return path
         base = f"{self.settings.api_base_url_str}/"
         normalized_path = path.lstrip("/")
@@ -125,7 +130,9 @@ class PKDBClient:
 
     @staticmethod
     def _serialize_response(response: httpx.Response) -> JsonDict:
-        content_type = response.headers.get("content-type", "").split(";", maxsplit=1)[0].strip().lower()
+        content_type = (
+            response.headers.get("content-type", "").split(";", maxsplit=1)[0].strip().lower()
+        )
         payload: JsonDict = {
             "status_code": response.status_code,
             "ok": 200 <= response.status_code < 300,

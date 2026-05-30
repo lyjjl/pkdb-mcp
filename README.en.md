@@ -141,15 +141,16 @@ PKDB_OPENAPI_URL = "https://pk-db.com/api/v1/swagger.json"
 
 All configuration is through environment variables prefixed with `PKDB_`:
 
-| Variable                    | Default                                 | Description                                                      |
-| --------------------------- | --------------------------------------- | ---------------------------------------------------------------- |
-| `PKDB_API_BASE_URL`         | `https://pk-db.com/api/v1`              | REST API base URL                                                |
-| `PKDB_OPENAPI_URL`          | `https://pk-db.com/api/v1/swagger.json` | OpenAPI document URL                                             |
-| `PKDB_API_TOKEN`            | _(not set)_                             | Optional token for authenticated endpoints                       |
-| `PKDB_USE_FALLBACK_SPEC`    | `true`                                  | Whether to fall back to built-in spec when live docs unavailable |
-| `PKDB_MCP_TRANSPORT`        | `stdio`                                 | MCP transport (`stdio`, `sse`, or `streamable-http`)             |
-| `PKDB_MCP_SERVER_NAME`      | `pkdb-mcp`                              | MCP server name advertised to clients                            |
-| `PKDB_HTTP_TIMEOUT_SECONDS` | `30`                                    | HTTP request timeout in seconds                                  |
+| Variable                    | Default                                 | Description                                                                             |
+| --------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------- |
+| `PKDB_API_BASE_URL`         | `https://pk-db.com/api/v1`              | REST API base URL                                                                       |
+| `PKDB_OPENAPI_URL`          | `https://pk-db.com/api/v1/swagger.json` | OpenAPI document URL                                                                    |
+| `PKDB_API_TOKEN`            | _(not set)_                             | Optional token for authenticated endpoints                                              |
+| `PKDB_USE_FALLBACK_SPEC`    | `true`                                  | Whether to fall back to built-in spec when live docs unavailable                        |
+| `PKDB_MCP_TRANSPORT`        | `stdio`                                 | MCP transport (`stdio`, `sse`, or `streamable-http`)                                    |
+| `PKDB_MCP_SERVER_NAME`      | `pkdb-mcp`                              | MCP server name advertised to clients                                                   |
+| `PKDB_HTTP_TIMEOUT_SECONDS` | `30`                                    | HTTP request timeout in seconds                                                         |
+| `PKDB_PROXY`                | _(not set)_                             | Optional HTTP/SOCKS proxy URL (e.g., `http://proxy:8080`); SOCKS requires `socks` extra |
 
 The project includes `.env.example` as a sample environment configuration file.
 
