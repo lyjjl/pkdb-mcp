@@ -1,0 +1,45 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "PK-DB REST API",
+    "version": "v1"
+  },
+  "basePath": "/api/v1",
+  "paths": {
+    "/statistics/": {
+      "get": {
+        "operationId": "statistics_list",
+        "summary": "Retrieve statistics.",
+        "tags": ["statistics"],
+        "parameters": [
+          {"name": "format", "in": "query", "required": false, "type": "string"}
+        ],
+        "responses": {"200": {"description": "OK"}}
+      }
+    },
+    "/info_nodes/{sid}/": {
+      "get": {
+        "operationId": "info_nodes_read",
+        "summary": "Retrieve an info node.",
+        "tags": ["info_nodes"],
+        "parameters": [
+          {"name": "sid", "in": "path", "required": true, "type": "string"},
+          {"name": "format", "in": "query", "required": false, "type": "string"}
+        ],
+        "responses": {"200": {"description": "OK"}}
+      }
+    },
+    "/filter/": {
+      "get": {
+        "operationId": "filter_list",
+        "summary": "Filter data.",
+        "tags": ["filter"],
+        "parameters": [
+          {"name": "studies__name", "in": "query", "required": false, "type": "string"},
+          {"name": "download", "in": "query", "required": false, "type": "boolean"}
+        ],
+        "responses": {"200": {"description": "OK"}}
+      }
+    }
+  }
+}

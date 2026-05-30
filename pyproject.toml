@@ -1,0 +1,94 @@
+[project]
+name = "pkdb-mcp"
+version = "0.1.0"
+description = "Model Context Protocol server for the PK-DB REST API."
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "MIT" }
+authors = [
+  { name = "PK-DB MCP maintainers" }
+]
+keywords = ["mcp", "pk-db", "pharmacokinetics", "openapi", "ai-agent"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.13",
+  "Typing :: Typed",
+]
+dependencies = [
+  "httpx>=0.28.0",
+  "mcp[cli]>=1.9.0",
+  "pydantic>=2.10.0",
+  "pydantic-settings>=2.7.0",
+  "pyyaml>=6.0.2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+  "pytest-asyncio>=0.24.0",
+  "ruff>=0.8.0",
+  "ty>=0.0.1a1",
+]
+
+[project.scripts]
+pkdb-mcp = "pkdb_mcp.__main__:main"
+
+[build-system]
+requires = ["hatchling>=1.26.0"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = true
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+  "A",
+  "ASYNC",
+  "B",
+  "C4",
+  "DTZ",
+  "E",
+  "F",
+  "FA",
+  "I",
+  "N",
+  "PERF",
+  "PIE",
+  "PTH",
+  "RET",
+  "RUF",
+  "SIM",
+  "T20",
+  "UP",
+  "W",
+]
+ignore = [
+  "B008",  # Pydantic Settings uses descriptors/defaults safely here.
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra --strict-config --strict-markers"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.ty.environment]
+python-version = "3.13"
+root = ["src"]

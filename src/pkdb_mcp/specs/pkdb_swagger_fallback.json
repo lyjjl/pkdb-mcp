@@ -1,0 +1,3244 @@
+{
+  "basePath": "/api/v1",
+  "consumes": [
+    "application/json"
+  ],
+  "host": "pk-db.com",
+  "info": {
+    "description": "Bundled fallback used only when live https://pk-db.com/api/v1/swagger.json cannot be loaded.",
+    "title": "PK-DB REST API fallback",
+    "version": "fallback"
+  },
+  "paths": {
+    "/_datafiles/": {
+      "get": {
+        "operationId": "_datafiles_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List _datafiles records.",
+        "tags": [
+          "_datafiles"
+        ]
+      },
+      "post": {
+        "operationId": "_datafiles_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a _datafiles record if authenticated and authorized.",
+        "tags": [
+          "_datafiles"
+        ]
+      }
+    },
+    "/_datafiles/{pk}/": {
+      "delete": {
+        "operationId": "_datafiles_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a _datafiles record if authenticated and authorized.",
+        "tags": [
+          "_datafiles"
+        ]
+      },
+      "get": {
+        "operationId": "_datafiles_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a _datafiles record.",
+        "tags": [
+          "_datafiles"
+        ]
+      },
+      "patch": {
+        "operationId": "_datafiles_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a _datafiles record if authenticated and authorized.",
+        "tags": [
+          "_datafiles"
+        ]
+      },
+      "put": {
+        "operationId": "_datafiles_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a _datafiles record if authenticated and authorized.",
+        "tags": [
+          "_datafiles"
+        ]
+      }
+    },
+    "/_info_nodes/": {
+      "get": {
+        "operationId": "_info_nodes_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List _info_nodes records.",
+        "tags": [
+          "_info_nodes"
+        ]
+      },
+      "post": {
+        "operationId": "_info_nodes_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a _info_nodes record if authenticated and authorized.",
+        "tags": [
+          "_info_nodes"
+        ]
+      }
+    },
+    "/_info_nodes/{pk}/": {
+      "delete": {
+        "operationId": "_info_nodes_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a _info_nodes record if authenticated and authorized.",
+        "tags": [
+          "_info_nodes"
+        ]
+      },
+      "get": {
+        "operationId": "_info_nodes_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a _info_nodes record.",
+        "tags": [
+          "_info_nodes"
+        ]
+      },
+      "patch": {
+        "operationId": "_info_nodes_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a _info_nodes record if authenticated and authorized.",
+        "tags": [
+          "_info_nodes"
+        ]
+      },
+      "put": {
+        "operationId": "_info_nodes_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a _info_nodes record if authenticated and authorized.",
+        "tags": [
+          "_info_nodes"
+        ]
+      }
+    },
+    "/_references/": {
+      "get": {
+        "operationId": "_references_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List _references records.",
+        "tags": [
+          "_references"
+        ]
+      },
+      "post": {
+        "operationId": "_references_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a _references record if authenticated and authorized.",
+        "tags": [
+          "_references"
+        ]
+      }
+    },
+    "/_references/{pk}/": {
+      "delete": {
+        "operationId": "_references_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a _references record if authenticated and authorized.",
+        "tags": [
+          "_references"
+        ]
+      },
+      "get": {
+        "operationId": "_references_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a _references record.",
+        "tags": [
+          "_references"
+        ]
+      },
+      "patch": {
+        "operationId": "_references_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a _references record if authenticated and authorized.",
+        "tags": [
+          "_references"
+        ]
+      },
+      "put": {
+        "operationId": "_references_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a _references record if authenticated and authorized.",
+        "tags": [
+          "_references"
+        ]
+      }
+    },
+    "/_studies/": {
+      "get": {
+        "operationId": "_studies_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List _studies records.",
+        "tags": [
+          "_studies"
+        ]
+      },
+      "post": {
+        "operationId": "_studies_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a _studies record if authenticated and authorized.",
+        "tags": [
+          "_studies"
+        ]
+      }
+    },
+    "/_studies/{pk}/": {
+      "delete": {
+        "operationId": "_studies_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a _studies record if authenticated and authorized.",
+        "tags": [
+          "_studies"
+        ]
+      },
+      "get": {
+        "operationId": "_studies_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a _studies record.",
+        "tags": [
+          "_studies"
+        ]
+      },
+      "patch": {
+        "operationId": "_studies_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a _studies record if authenticated and authorized.",
+        "tags": [
+          "_studies"
+        ]
+      },
+      "put": {
+        "operationId": "_studies_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a _studies record if authenticated and authorized.",
+        "tags": [
+          "_studies"
+        ]
+      }
+    },
+    "/_user_groups/": {
+      "get": {
+        "operationId": "_user_groups_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List _user_groups records.",
+        "tags": [
+          "_user_groups"
+        ]
+      },
+      "post": {
+        "operationId": "_user_groups_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a _user_groups record if authenticated and authorized.",
+        "tags": [
+          "_user_groups"
+        ]
+      }
+    },
+    "/_user_groups/{pk}/": {
+      "delete": {
+        "operationId": "_user_groups_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a _user_groups record if authenticated and authorized.",
+        "tags": [
+          "_user_groups"
+        ]
+      },
+      "get": {
+        "operationId": "_user_groups_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a _user_groups record.",
+        "tags": [
+          "_user_groups"
+        ]
+      },
+      "patch": {
+        "operationId": "_user_groups_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a _user_groups record if authenticated and authorized.",
+        "tags": [
+          "_user_groups"
+        ]
+      },
+      "put": {
+        "operationId": "_user_groups_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a _user_groups record if authenticated and authorized.",
+        "tags": [
+          "_user_groups"
+        ]
+      }
+    },
+    "/_users/": {
+      "get": {
+        "operationId": "_users_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List _users records.",
+        "tags": [
+          "_users"
+        ]
+      },
+      "post": {
+        "operationId": "_users_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a _users record if authenticated and authorized.",
+        "tags": [
+          "_users"
+        ]
+      }
+    },
+    "/_users/{pk}/": {
+      "delete": {
+        "operationId": "_users_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a _users record if authenticated and authorized.",
+        "tags": [
+          "_users"
+        ]
+      },
+      "get": {
+        "operationId": "_users_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a _users record.",
+        "tags": [
+          "_users"
+        ]
+      },
+      "patch": {
+        "operationId": "_users_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a _users record if authenticated and authorized.",
+        "tags": [
+          "_users"
+        ]
+      },
+      "put": {
+        "operationId": "_users_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a _users record if authenticated and authorized.",
+        "tags": [
+          "_users"
+        ]
+      }
+    },
+    "/filter/": {
+      "get": {
+        "operationId": "filter_list",
+        "parameters": [
+          {
+            "description": "Return a zip archive if true.",
+            "in": "query",
+            "name": "download",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "description": "Filter by study name.",
+            "in": "query",
+            "name": "studies__name",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Filter by study SID.",
+            "in": "query",
+            "name": "studies__sid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Filter by intervention substance.",
+            "in": "query",
+            "name": "interventions__substances",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Filter by output substance.",
+            "in": "query",
+            "name": "outputs__substance",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Search and filter PK-DB data; can return a temporary UUID or a zip download.",
+        "tags": [
+          "filter"
+        ]
+      }
+    },
+    "/groups/": {
+      "get": {
+        "operationId": "groups_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List study group information.",
+        "tags": [
+          "groups"
+        ]
+      }
+    },
+    "/groups/{pk}/": {
+      "get": {
+        "operationId": "groups_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve one groups record.",
+        "tags": [
+          "groups"
+        ]
+      }
+    },
+    "/individuals/": {
+      "get": {
+        "operationId": "individuals_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List individual subject information.",
+        "tags": [
+          "individuals"
+        ]
+      }
+    },
+    "/individuals/{pk}/": {
+      "get": {
+        "operationId": "individuals_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve one individuals record.",
+        "tags": [
+          "individuals"
+        ]
+      }
+    },
+    "/info_nodes/": {
+      "get": {
+        "operationId": "info_nodes_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List PK-DB info nodes and ontology-style metadata.",
+        "tags": [
+          "info_nodes"
+        ]
+      }
+    },
+    "/info_nodes/{sid}/": {
+      "get": {
+        "operationId": "info_nodes_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve one info nodes record.",
+        "tags": [
+          "info_nodes"
+        ]
+      }
+    },
+    "/interventions/": {
+      "get": {
+        "operationId": "interventions_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List intervention information.",
+        "tags": [
+          "interventions"
+        ]
+      }
+    },
+    "/interventions/{pk}/": {
+      "get": {
+        "operationId": "interventions_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve one interventions record.",
+        "tags": [
+          "interventions"
+        ]
+      }
+    },
+    "/outputs/": {
+      "get": {
+        "operationId": "outputs_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List pharmacokinetic output measurements and parameters.",
+        "tags": [
+          "outputs"
+        ]
+      }
+    },
+    "/outputs/{pk}/": {
+      "get": {
+        "operationId": "outputs_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve one outputs record.",
+        "tags": [
+          "outputs"
+        ]
+      }
+    },
+    "/pkdata/data/": {
+      "get": {
+        "operationId": "pkdata_data_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List pkdata/data records.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "post": {
+        "operationId": "pkdata_data_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a pkdata/data record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/data/{pk}/": {
+      "delete": {
+        "operationId": "pkdata_data_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a pkdata/data record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "get": {
+        "operationId": "pkdata_data_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a pkdata/data record.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "patch": {
+        "operationId": "pkdata_data_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a pkdata/data record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "put": {
+        "operationId": "pkdata_data_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a pkdata/data record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/groups/": {
+      "get": {
+        "operationId": "pkdata_groups_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List pkdata/groups records.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "post": {
+        "operationId": "pkdata_groups_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a pkdata/groups record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/groups/{pk}/": {
+      "delete": {
+        "operationId": "pkdata_groups_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a pkdata/groups record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "get": {
+        "operationId": "pkdata_groups_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a pkdata/groups record.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "patch": {
+        "operationId": "pkdata_groups_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a pkdata/groups record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "put": {
+        "operationId": "pkdata_groups_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a pkdata/groups record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/individuals/": {
+      "get": {
+        "operationId": "pkdata_individuals_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List pkdata/individuals records.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "post": {
+        "operationId": "pkdata_individuals_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a pkdata/individuals record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/individuals/{pk}/": {
+      "delete": {
+        "operationId": "pkdata_individuals_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a pkdata/individuals record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "get": {
+        "operationId": "pkdata_individuals_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a pkdata/individuals record.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "patch": {
+        "operationId": "pkdata_individuals_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a pkdata/individuals record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "put": {
+        "operationId": "pkdata_individuals_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a pkdata/individuals record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/interventions/": {
+      "get": {
+        "operationId": "pkdata_interventions_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List pkdata/interventions records.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "post": {
+        "operationId": "pkdata_interventions_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a pkdata/interventions record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/interventions/{pk}/": {
+      "delete": {
+        "operationId": "pkdata_interventions_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a pkdata/interventions record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "get": {
+        "operationId": "pkdata_interventions_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a pkdata/interventions record.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "patch": {
+        "operationId": "pkdata_interventions_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a pkdata/interventions record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "put": {
+        "operationId": "pkdata_interventions_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a pkdata/interventions record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/outputs/": {
+      "get": {
+        "operationId": "pkdata_outputs_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List pkdata/outputs records.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "post": {
+        "operationId": "pkdata_outputs_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a pkdata/outputs record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/outputs/{pk}/": {
+      "delete": {
+        "operationId": "pkdata_outputs_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a pkdata/outputs record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "get": {
+        "operationId": "pkdata_outputs_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a pkdata/outputs record.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "patch": {
+        "operationId": "pkdata_outputs_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a pkdata/outputs record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "put": {
+        "operationId": "pkdata_outputs_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a pkdata/outputs record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/studies/": {
+      "get": {
+        "operationId": "pkdata_studies_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List pkdata/studies records.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "post": {
+        "operationId": "pkdata_studies_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a pkdata/studies record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/studies/{pk}/": {
+      "delete": {
+        "operationId": "pkdata_studies_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a pkdata/studies record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "get": {
+        "operationId": "pkdata_studies_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a pkdata/studies record.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "patch": {
+        "operationId": "pkdata_studies_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a pkdata/studies record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "put": {
+        "operationId": "pkdata_studies_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a pkdata/studies record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/timecourses/": {
+      "get": {
+        "operationId": "pkdata_timecourses_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List pkdata/timecourses records.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "post": {
+        "operationId": "pkdata_timecourses_create",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Created"
+          }
+        },
+        "summary": "Create a pkdata/timecourses record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/pkdata/timecourses/{pk}/": {
+      "delete": {
+        "operationId": "pkdata_timecourses_delete",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Deleted"
+          }
+        },
+        "summary": "Delete a pkdata/timecourses record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "get": {
+        "operationId": "pkdata_timecourses_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve a pkdata/timecourses record.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "patch": {
+        "operationId": "pkdata_timecourses_partial_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Partially update a pkdata/timecourses record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      },
+      "put": {
+        "operationId": "pkdata_timecourses_update",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Update a pkdata/timecourses record if authenticated and authorized.",
+        "tags": [
+          "pkdata"
+        ]
+      }
+    },
+    "/references/": {
+      "get": {
+        "operationId": "references_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List searchable reference information.",
+        "tags": [
+          "references"
+        ]
+      }
+    },
+    "/references/{sid}/": {
+      "get": {
+        "operationId": "references_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve one references record.",
+        "tags": [
+          "references"
+        ]
+      }
+    },
+    "/statistics/": {
+      "get": {
+        "operationId": "statistics_list",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Retrieve PK-DB content counts and version information.",
+        "tags": [
+          "statistics"
+        ]
+      }
+    },
+    "/statistics/substances/": {
+      "get": {
+        "operationId": "statistics_substances_list",
+        "parameters": [
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "Retrieve substance-level PK-DB statistics.",
+        "tags": [
+          "statistics"
+        ]
+      }
+    },
+    "/studies/": {
+      "get": {
+        "operationId": "studies_list",
+        "parameters": [
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List searchable PK-DB study information.",
+        "tags": [
+          "studies"
+        ]
+      }
+    },
+    "/studies/{sid}/": {
+      "get": {
+        "operationId": "studies_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "sid",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve one studies record.",
+        "tags": [
+          "studies"
+        ]
+      }
+    },
+    "/subsets/": {
+      "get": {
+        "operationId": "subsets_list",
+        "parameters": [
+          {
+            "description": "Subset type.",
+            "enum": [
+              "timecourse",
+              "scatter"
+            ],
+            "in": "query",
+            "name": "data_type",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Page number for paginated results.",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Page size if supported by the endpoint.",
+            "in": "query",
+            "name": "page_size",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "description": "Full-text search term where supported.",
+            "in": "query",
+            "name": "search",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Temporary filter UUID returned by /filter/.",
+            "in": "query",
+            "name": "uuid",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "summary": "List timecourse or scatter subset data.",
+        "tags": [
+          "subsets"
+        ]
+      }
+    },
+    "/subsets/{pk}/": {
+      "get": {
+        "operationId": "subsets_retrieve",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "pk",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "description": "Optional response format, usually json.",
+            "in": "query",
+            "name": "format",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        },
+        "summary": "Retrieve one subsets record.",
+        "tags": [
+          "subsets"
+        ]
+      }
+    }
+  },
+  "produces": [
+    "application/json"
+  ],
+  "schemes": [
+    "https"
+  ],
+  "swagger": "2.0"
+}
