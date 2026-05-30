@@ -8,6 +8,7 @@ An MCP server for the [PK-DB](https://pk-db.com) REST API — serving the pharma
 [![Python Version](https://img.shields.io/badge/python-3.13-blue?style=flat-square&logo=python)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 [![Ruff](https://img.shields.io/badge/code_style-Ruff-5ed9c7?style=flat-square&logo=ruff)](https://docs.astral.sh/ruff)
+[![PyPI](https://img.shields.io/pypi/v/pkdb-mcp?style=flat-square&logo=pypi)](https://pypi.org/project/pkdb-mcp/)
 
 <!-- README-I18N:START -->
 
@@ -61,6 +62,13 @@ At runtime, the server executes the following flow:
 ## Installation
 
 ```bash
+# Recommended: run directly from PyPI (no local install needed)
+uvx pkdb-mcp
+```
+
+Or install from source:
+
+```bash
 git clone https://github.com/lyjjl/pkdb-mcp.git
 cd pkdb-mcp
 uv sync --extra dev
@@ -71,12 +79,33 @@ uv sync --extra dev
 ### Run as an MCP Server
 
 ```bash
+# Run directly from PyPI (recommended)
+uvx pkdb-mcp
+
+# Or run from a local source directory
 uv run pkdb-mcp
 ```
 
 ### Configure Claude Desktop
 
 Add to `claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "pkdb": {
+      "command": "uvx",
+      "args": ["pkdb-mcp"],
+      "env": {
+        "PKDB_API_BASE_URL": "https://pk-db.com/api/v1",
+        "PKDB_OPENAPI_URL": "https://pk-db.com/api/v1/swagger.json"
+      }
+    }
+  }
+}
+```
+
+If using a local source clone:
 
 ```json
 {
@@ -96,6 +125,25 @@ Add to `claude_desktop_config.json`:
 ### Configure OpenCode
 
 Add to `opencode.jsonc`:
+
+```jsonc
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "pkdb": {
+      "type": "local",
+      "command": ["uvx", "pkdb-mcp"],
+      "enabled": true,
+      "environment": {
+        "PKDB_API_BASE_URL": "https://pk-db.com/api/v1",
+        "PKDB_OPENAPI_URL": "https://pk-db.com/api/v1/swagger.json",
+      },
+    },
+  },
+}
+```
+
+If using a local source clone:
 
 ```jsonc
 {
@@ -123,6 +171,18 @@ Add to `opencode.jsonc`:
 ### Configure Codex
 
 Add to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.pkdb]
+command = "uvx"
+args = ["pkdb-mcp"]
+
+[mcp_servers.pkdb.env]
+PKDB_API_BASE_URL = "https://pk-db.com/api/v1"
+PKDB_OPENAPI_URL = "https://pk-db.com/api/v1/swagger.json"
+```
+
+If using a local source clone:
 
 ```toml
 [mcp_servers.pkdb]

@@ -5,6 +5,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.13-blue?style=flat-square&logo=python)](https://python.org)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 [![Ruff](https://img.shields.io/badge/code_style-Ruff-5ed9c7?style=flat-square&logo=ruff)](https://docs.astral.sh/ruff)
+[![PyPI](https://img.shields.io/pypi/v/pkdb-mcp?style=flat-square&logo=pypi)](https://pypi.org/project/pkdb-mcp/)
 
 `pkdb-mcp` 通过[模型上下文协议](https://modelcontextprotocol.io)将 AI 智能体与 PK-DB 相连。启动时，它会拉取 PK-DB 的实时 OpenAPI 文档，并为每个 API 操作动态注册一个 MCP 工具——无需手动编写接口绑定。
 
@@ -58,6 +59,13 @@ flowchart LR
 ## 安装
 
 ```bash
+# 推荐：直接从 PyPI 运行（无需本地安装）
+uvx pkdb-mcp
+```
+
+或者从源码安装：
+
+```bash
 git clone https://github.com/lyjjl/pkdb-mcp.git
 cd pkdb-mcp
 uv sync --extra dev
@@ -68,12 +76,33 @@ uv sync --extra dev
 ### 作为 MCP 服务器运行
 
 ```bash
+# 直接从 PyPI 运行（推荐）
+uvx pkdb-mcp
+
+# 或从本地源码目录运行
 uv run pkdb-mcp
 ```
 
 ### 配置 Claude Desktop
 
 在 `claude_desktop_config.json` 中添加：
+
+```json
+{
+  "mcpServers": {
+    "pkdb": {
+      "command": "uvx",
+      "args": ["pkdb-mcp"],
+      "env": {
+        "PKDB_API_BASE_URL": "https://pk-db.com/api/v1",
+        "PKDB_OPENAPI_URL": "https://pk-db.com/api/v1/swagger.json"
+      }
+    }
+  }
+}
+```
+
+如果使用本地克隆的源码目录：
 
 ```json
 {
@@ -93,6 +122,25 @@ uv run pkdb-mcp
 ### 配置 OpenCode
 
 在 `opencode.jsonc` 中添加：
+
+```jsonc
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "pkdb": {
+      "type": "local",
+      "command": ["uvx", "pkdb-mcp"],
+      "enabled": true,
+      "environment": {
+        "PKDB_API_BASE_URL": "https://pk-db.com/api/v1",
+        "PKDB_OPENAPI_URL": "https://pk-db.com/api/v1/swagger.json",
+      },
+    },
+  },
+}
+```
+
+如果使用本地克隆的源码目录：
 
 ```jsonc
 {
@@ -120,6 +168,18 @@ uv run pkdb-mcp
 ### 配置 Codex
 
 在 `~/.codex/config.toml` 中添加：
+
+```toml
+[mcp_servers.pkdb]
+command = "uvx"
+args = ["pkdb-mcp"]
+
+[mcp_servers.pkdb.env]
+PKDB_API_BASE_URL = "https://pk-db.com/api/v1"
+PKDB_OPENAPI_URL = "https://pk-db.com/api/v1/swagger.json"
+```
+
+如果使用本地克隆的源码目录：
 
 ```toml
 [mcp_servers.pkdb]
